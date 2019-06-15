@@ -1,0 +1,556 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fables">
+    <meta name="author" content="Enterprise Development">
+    <link rel="shortcut icon" href="assets/custom/images/shortcut.png">
+
+    <title>Acceuil</title>
+      
+    <!-- animate.css-->  
+    <link href="{% static 'assets/vendor/animate.css-master/animate.min.css' %}" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="{% static 'assets/vendor/loadscreen/css/spinkit.css' %}" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="{% static 'assets/vendor/fontawesome/css/fontawesome-all.min.css' %}" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="{% static 'assets/custom/css/fables-icons.css' %}" rel="stylesheet"> 
+    <!-- Bootstrap CSS --> 
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap-4-navbar.css' %}" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="{% static 'assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css' %}" rel="stylesheet">
+    <!-- FANCY BOX -->
+    <link href="{% static 'assets/vendor/fancybox-master/jquery.fancybox.min.css' %}" rel="stylesheet"> 
+    <!-- RANGE SLIDER -->
+    <link href="{% static 'assets/vendor/range-slider/range-slider.css' %}" rel="stylesheet">
+    <!-- OWL CAROUSEL  --> 
+    <link href="{% static 'assets/vendor/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owlcarousel/owl.theme.default.min.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="{% static 'assets/custom/css/custom.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="{% static 'assets/custom/css/custom-responsive.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/custom/stylepfe.css' %}" rel="stylesheet">
+     
+</head>
+
+
+<body>
+
+<div class="search-section">
+    <a class="close-search" href="#"></a>
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <form method="post" action="#" class="w-50">
+            <div class="row">
+                <div class="col-10">
+                    <input type="search" value="" class="form-control palce bg-transparent border-0 search-input" placeholder="Search Here ..." /> 
+                </div>
+                <div class="col-2 mt-3">
+                     <button type="submit" class="btn bg-transparent text-white"> <i class="fas fa-search"></i> </button>
+                </div>
+            </div>
+        </form>
+    </div>
+         
+</div>
+
+<!-- Loading Screen -->
+<div id="ju-loading-screen">
+  <div class="sk-double-bounce">
+    <div class="sk-child sk-double-bounce1"></div>
+    <div class="sk-child sk-double-bounce2"></div>
+  </div>
+</div>
+ 
+ 
+<!-- /End Top Header -->
+
+<div class="fables-transparent py-3 py-lg-0">
+    <div class="container">
+           <div class="row">
+               <div class="col-12 col-md-10 pr-md-0">                       
+                   <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
+
+                        <a class="navbar-brand fables-logo-brand pl-0" href="{% url 'service:index' %}"><img src="{% static 'assets/custom/images/fables-logo.png' %}" alt="Fables Template" class="fables-logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="fables-iconmenu-icon text-white font-16"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="fablesNavDropdown"> 
+
+                            <ul class="navbar-nav mx-auto fables-nav">   
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggl" href="{% url 'service:index' %}" id="sub-nav1" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+                                        Acceuil
+                                    </a>
+                             
+                                </li>
+                                        <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggl" href="{% url 'service:about' %}" id="sub-nav1" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+                                        a propos
+                                    </a>
+                             
+                                </li>
+
+                                        <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggl" href="{% url 'service:categorie' %}" id="sub-nav1" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+                                        Catégorie
+                                    </a>
+                             
+                                </li>
+                                        <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggl" href="{% url 'service:region' %}" id="sub-nav1" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+                                        Région
+                                    </a>
+                             
+                                </li>
+                         
+                                        <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggl" href="{% url 'service:contact' %}" id="sub-nav1" data-toggle="dropdwn" aria-haspopup="true" aria-expanded="false">
+                                        
+                                        Contactez Nous
+                                    </a>
+                             
+                                </li>
+
+                               
+                            </ul> 
+
+                </div>
+            </nav>
+               </div>
+               <div class="col-5 col-md-2 pr-md-0 icons-header-mobile">
+
+                   <div class="fables-header-icons pt-lg-4 text-right">
+                        
+              
+                        <div class="dropdown d-inline-block float-right float-md-none"> 
+
+                                {% if not user.is_authenticated %}
+
+                                <div class="dropdown">
+  <a style="padding-top: 0px;" class="nav-link dropdown-toggl dropdown-toggle" href="#" role="button" id="sub-nav1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Connecter
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item font-13 " href="{% url 'service:signin' %}">Client</a>
+    <a class="dropdown-item font-13 " href="{% url 'mobile:index' %}">Travailleur</a>
+
+  </div>
+</div>
+                                
+                                
+                                {% endif %}
+                                {% if user.is_authenticated %}   
+                                <a href="{% url 'service:logout_user' %}"><span class="fables-iconuser"></span> Déconnexion {{ user.username }} </a>
+                                {% endif %}
+
+                             </div>
+
+
+                   </div>
+
+               </div>
+           </div>
+    </div>
+</div>
+     
+<!-- Start Header -->
+<div class="fables-header fables-after-overlay overlay-lighter index-traingle bg-rules" style="background-image: url(
+    /static/assets/custom/images/Landingphotobac.jpg);">
+    <div class="container">  
+        <div class="row">
+            <div class="col-md-10 col-lg-7 mr-auto index-carousel">
+                  <div class="owl-carousel owl-theme default-carousel nav-0 z-index mt-md-4 mt-xl-5 pt-md-4 pt-xl-5 dots-0 pb-md-5">
+                      <div class="pt-0 mt-0 pt-xl-5 mt-xl-5 wow slideInUp" data-wow-duration="2s" data-wow-delay=".4s">
+                          <h1 id="Lmesage" class="fables-main-text-color font-weight-bold mb-1">Consulter nos services
+                             <span class="fables-second-text-color">Votre satisfaction est notre priorité</span>
+                          </h1>  
+                          <p class="fables-forth-text-colo mb-3 light-font fables-header-slider-details">
+                              Plus que 30.000 Service sur notre disponibilité 24h/24h 7j/7j
+                          </p>
+                          <a href="{% url 'service:categorie' %}" class="btn fables-second-background-color fables-second-border-color white-color rounded-0 mr-4 px-3 px-md-4 py-2 bg-hover-transparent fables-second-hover-color">Notre Services</a>
+                          <a href="#" class="btn fables-second-border-color fables-second-text-color rounded-0 px-3 px-md-4 py-2 fables-second-hover-background-color">Plus</a>  
+                      </div> 
+                      <div class="pt-0 mt-0 pt-xl-5 mt-xl-5 wow slideInUp" data-wow-duration="2s" data-wow-delay=".8s">
+                          <h1 class="fables-main-text-color font-weight-bold mb-1">Toute nos services 
+                             <span class="fables-second-text-color">Service plus rapide au monde</span>
+                          </h1>  
+                          <p class="fables-forth-text-colo mb-3 light-font fables-header-slider-details">
+                            Plus que 30.000 Service sur notre disponibilité 24h/24h 7j/7j
+                          </p>
+                          <a href="{% url 'service:categorie' %}" class="btn fables-second-background-color fables-second-border-color white-color rounded-0 mr-4 px-3 px-md-4 py-2 bg-hover-transparent fables-second-hover-color">Notre Services</a>
+                          <a href="#" class="btn fables-second-border-color fables-second-text-color rounded-0 px-3 px-md-4 py-2 fables-second-hover-background-color">Plus</a>  
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<!-- /End Header -->
+     
+
+     
+<!-- Start page content -->    
+       <div class="container">
+             <div class="row my-3 my-md-5 overflow-hidden">
+                  <div class="col-12 col-sm-6 col-lg-3 text-center mb-4 mb-lg-0 wow fadeInDown" data-wow-delay=".4s" data-wow-duration="1.5s">
+                      <span class="fables-iconbussiness fables-second-text-color fa-3x"></span>
+                      <h2 class="fables-main-text-color font-18 my-2">Consulter Service en ligne</h2>
+                    
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3 text-center mb-4 mb-lg-0 wow fadeInDown" data-wow-delay=".8s" data-wow-duration="1.5s">
+                      <span class="fables-iconbussiness2 fables-second-text-color fa-3x"></span>
+                      <h2 class="fables-main-text-color font-18 my-2">Reserver votre service</h2>
+                   
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3 text-center mb-4 mb-lg-0 wow fadeInDown" data-wow-delay="1.2s" data-wow-duration="1.5s">
+                      <span class="fables-iconbussiness3 fables-second-text-color fa-3x"></span>
+                      <h2 class="fables-main-text-color font-18 my-2">Payer en toute sécurité</h2>
+                 
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-3 text-center mb-4 mb-lg-0 wow fadeInDown" data-wow-delay="1.6s" data-wow-duration="1.5s">
+                      <span class="fables-iconbussiness4 fables-second-text-color fa-3x"></span>
+                      <h2 class="fables-main-text-color font-18 my-2">Gagner votre temps et argent</h2>
+                   
+                  </div>
+            </div> 
+            
+       </div>
+       <div class="fables-choose-background fables-after-overlay py-4 py-md-5 bg-rules overflow-hidden px-3 px-md-0">
+           <div class="container position-relative z-index">
+             <div class="row">
+                <div class="col-12 col-lg-6 p-0 image-container translate-effect-right wow fadeInLeft mb-3 mb-md-0" data-wow-delay="1s" data-wow-duration="1.5s">
+                    <img src="{% static 'assets/custom/images/choose-img.jpg' %}" alt="" class="w-100">
+                </div>
+                <div class="col-12 col-lg-6 bg-white px-6 py-3 py-md-5 wow fadeInRight" data-wow-delay="1s" data-wow-duration="1.5s">
+                    <h2 class="font-30 font-weight-bold fables-second-text-color">Pourquoi Nous?</h2>
+                    <br>
+                    <div id="accordion">
+                          <div class="card border-0 mb-2">
+                            <div class="card-header p-0 border bg-transparent rounded-0" id="headingOne">
+                              <h5 class="mb-0 position-relative">
+                                <span class="fables-second-background-color white-color d-inline-block 
+ position-absolute fables-lus-icon pt-2 text-center">
+                                    <i class="fas fa-plus"></i>  
+                                </span>
+                                <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Des partenaires de haute qualité
+                                </button>
+                              </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                              <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+                                Tous nous partenaires sont des experts domaines avec une expérience plus que 15 ans.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card border-0 mb-2">
+                            <div class="card-header bg-transparent p-0 border rounded-0" id="headingTwo">
+                              <h5 class="mb-0 position-relative">
+                                <span class="fables-second-background-color white-color d-inline-block 
+ position-absolute fables-lus-icon pt-2 text-center">
+                                    <i class="fas fa-plus"></i>  
+                                </span>
+                                <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Service Rapide
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                              <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+                                Nos services sont rapides juste aprés la réservation 15 min un agent sera devant votre porte.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card border-0 mb-2">
+                            <div class="card-header p-0 border bg-transparent rounded-0" id="headingThree">
+                              <h5 class="mb-0 position-relative">
+                                <span class="fables-second-background-color white-color d-inline-block 
+ position-absolute fables-lus-icon pt-2 text-center">
+                                    <i class="fas fa-plus"></i>  
+                                </span>
+                                <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Garantie plus que 15 ans
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                              <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+                                Nos produits et services sont tous sous garantis dans le volume de 2 ans à 15 ans.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card border-0 mb-2">
+                            <div class="card-header p-0 border bg-transparent rounded-0" id="headingfour">
+                              <h5 class="mb-0 position-relative">
+                                <span class="fables-second-background-color white-color d-inline-block 
+ position-absolute fables-lus-icon pt-2 text-center">
+                                    <i class="fas fa-plus"></i>  
+                                </span>
+                                <button class="btn fables-main-text-color bg-transparent font-18 focus-0 d-block position-relative z-index pl-6 pt-2 pb-2 w-100 text-left border-0 text-truncate collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                                  Numéro 1 sur le marché
+                                </button>
+                              </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingfour" data-parent="#accordion">
+                              <div class="card-body fables-forth-text-color font-14 py-1 py-xl-2 pl-6 pr-0">
+                                Suivant tous les rapports statistiques notre service est le numéro 1 au marché.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+             </div>
+
+           </div>
+       </div>
+       <div class="container">
+           <div class="row">
+               <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center"> 
+                   <h2 class="fables-second-text-color font-35 font-weight-bold my-3 mt-md-5 mb-md-4">Notre agence en chiffre</h2>
+                   <p class="fables-forth-text-color">
+                    Quelques chiffres expliquent notre service  on ligne
+                   </p> 
+               </div>
+           </div>
+           <div class="row mt-4 mt-md-5">
+               <div class="col-6 col-md-3">
+                   <div class="fables-counter">
+                       <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-main-text-color border fables-second-border-color d-inline-block px-4 py-2 mb-4" data-count="307">0</h2>
+                       <h3 class="font-14 semi-font fables-forth-text-color">Clients</h3>
+                   </div>
+               </div>
+               <div class="col-6 col-md-3">
+                   <div class="fables-counter">
+                       <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-main-text-color border fables-second-border-color d-inline-block px-4 py-2 mb-4" data-count="95">0</h2>
+                       <h3 class="font-14 semi-font fables-forth-text-color">Partenaires</h3>
+                   </div>
+               </div>
+               <div class="col-6 col-md-3">
+                   <div class="fables-counter">
+                       <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-main-text-color border fables-second-border-color d-inline-block px-4 py-2 mb-4" data-count="55">0</h2>
+                       <h3 class="font-14 semi-font fables-forth-text-color">Défis</h3>
+                   </div>
+               </div>
+               <div class="col-6 col-md-3">
+                   <div class="fables-counter">
+                       <h2 class="fables-counter-value font-40 font-weight-bold mb-3 fables-main-text-color border fables-second-border-color d-inline-block px-4 py-2 mb-4" data-count="16">0</h2>
+                       <h3 class="font-14 semi-font fables-forth-text-color">Expériences</h3>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+    
+
+    <div class="container"> 
+         <h2 class="font-35 font-weight-bold text-center fables-main-text-color my-3 my-lg-5">Equipe</h2>          
+         <div class="row overflow-hidden">
+            <div class="col-6 col-md-3 mb-4 wow bounceInDown" data-wow-delay=".4s" data-wow-duration="1.5s">
+                <div class="card fables-team-block fables-second-hover-text-color fables-team-border fables-second-border-color">
+                  <div class="image-container shine-effect">
+                      <a href="#"><img style="height: 315px; width: 255px; " class="w-100" src="{% static 'assets/custom/images/o-4-570.jpg' %}" alt="Card image cap"></a> 
+                  </div>
+                  <div class="card-body">
+                    <h5><a href="#" class="font-20 semi-font fables-forth-text-color fables-second-hover-color team-name">Sleh Mamnoun</a></h5>
+                    <p class="font-13 fables-forth-text-color my-1">Jardinier</p> 
+                    <ul class="nav fables-team-social-links"> 
+                        <li><a href="#" target="_blank"><span class="fables-icongoogle-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconwhatapp-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>   
+                        <li><a href="#" target="_blank"><span class="fables-icontwitter-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconinstagram-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li> 
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4 wow bounceInDown" data-wow-delay=".8s" data-wow-duration="1.5s">
+                <div class="card fables-team-block fables-second-hover-text-color fables-team-border fables-second-border-color">
+                   <div class="image-container shine-effect">
+                      <a href="#"><img style="height: 315px; width: 255px; " class="w-100" src="{% static 'assets/custom/images/1_46.jpg' %}" alt="Card image cap"></a>
+                  </div>
+                  <div class="card-body">
+                    <h5><a href="#" class="font-20 semi-font fables-forth-text-color fables-second-hover-color team-name">Amani Masoud</a></h5>
+                    <p class="font-13 fables-forth-text-color my-1">Femme De Ménage</p> 
+                    <ul class="nav fables-team-social-links"> 
+                        <li><a href="#" target="_blank"><span class="fables-icongoogle-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconwhatapp-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>   
+                        <li><a href="#" target="_blank"><span class="fables-icontwitter-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconinstagram-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li> 
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4 wow bounceInDown" data-wow-delay="1.2s" data-wow-duration="1.5s">
+                <div class="card fables-team-block fables-second-hover-text-color fables-team-border fables-second-border-color">
+                   <div class="image-container shine-effect">
+                      <a href="#"><img style="height: 315px; width: 255px; " class="w-100" src="{% static 'assets/custom/images/veste-dengri-femme.jpg' %}" alt="Card image cap"></a>
+                  </div>
+                  <div class="card-body">
+                    <h5><a href="#" class="font-20 semi-font fables-forth-text-color fables-second-hover-color team-name">Maram Ben Mariem</a></h5>
+                    <p class="font-13 fables-forth-text-color my-1">Femme De Ménage</p> 
+                    <ul class="nav fables-team-social-links"> 
+                        <li><a href="#" target="_blank"><span class="fables-icongoogle-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconwhatapp-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>   
+                        <li><a href="#" target="_blank"><span class="fables-icontwitter-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconinstagram-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li> 
+                    </ul>
+                  </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 mb-4 wow bounceInDown" data-wow-delay="1.6s" data-wow-duration="1.5s">
+                <div class="card fables-team-block fables-second-hover-text-color fables-team-border fables-second-border-color">
+                   <div class="image-container shine-effect">
+                       <a href="#"><img style="height: 315px; width: 255px; " class="w-100" src="{% static 'assets/custom/images/le-dengri.jpg' %}" alt="Card image cap"></a>
+                  </div>
+                  <div class="card-body">
+                    <h5><a href="#" class="font-20 semi-font fables-forth-text-color fables-second-hover-color team-name">Salwa Bouanen</a></h5>
+                    <p class="font-13 fables-forth-text-color my-1">Cuisinière</p> 
+                    <ul class="nav fables-team-social-links"> 
+                        <li><a href="#" target="_blank"><span class="fables-icongoogle-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconwhatapp-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>   
+                        <li><a href="#" target="_blank"><span class="fables-icontwitter-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li>
+                        <li><a href="#" target="_blank"><span class="fables-iconinstagram-icon fables-forth-text-color fables-fifth-border-color fables-team-social-icon"></span></a></li> 
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>  
+        <div class="row my-3 my-lg-5">
+            
+          <div class="owl-carousel owl-theme px-6 my-0" id="fables-partner-carousel">
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-1.jpg' %}" alt="Fables Template' %}" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-2.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-3.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-4.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-3.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-1.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-2.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-3.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+                  <div> 
+                      <img src="{% static 'assets/custom/images/partner2-4.jpg' %}" alt="Fables Template" class="fables-partner-carousel-img">  
+                  </div>
+
+            </div>
+        </div>   
+       </div> 
+         
+      
+<!-- /End page content -->
+    
+<!-- Start Footer 2 Background Image  -->
+<div class="fables-footer-image fables-after-overlay white-color py-4 py-lg-5 bg-rules">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-2 mb-5 text-center">
+                <h2 class="font-30 semi-font mb-5">Lettre d'information</h2>
+                <form class="form-inline position-relative"> 
+                  <div class="form-group fables-subscribe-formgroup"> 
+                    <input type="email" class="form-control fables-subscribe-input fables-btn-rouned" placeholder="Your Email">
+                  </div>
+                  <button type="submit" class="btn fables-second-background-color fables-btn-rouned fables-subscribe-btn">S'INSCRIRE</button>
+                </form>
+                
+            </div>
+            <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+                <a href="#" class="fables-second-border-color border-bottom pb-3 d-block mb-3 mt-minus-13"><img src="{% static 'assets/custom/images/fables-logo.png' %}" alt="fables template"></a>
+                <p class="font-15 fables-third-text-color">
+                     
+                    Le Service le plus rapide du monde :)
+                </p> 
+                
+            </div>
+             
+            <div class="col-12 col-sm-6 col-lg-4">
+                <h2 class="font-20 semi-font fables-second-border-color border-bottom pb-3">Contactez Nous</h2>
+               <div class="my-3">
+                    <h4 class="font-16 semi-font"><span class="fables-iconmap-icon fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Address Information</h4>
+                    <p class="font-14 fables-fifth-text-color mt-2 ml-4">Technopole Sousse</p>
+                </div>
+                <div class="my-3">
+                    <h4 class="font-16 semi-font"><span class="fables-iconphone fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Call Now </h4>
+                    <p class="font-14 fables-fifth-text-color mt-2 ml-4">+216 52 684 299</p>
+                </div>
+                <div class="my-3">
+                    <h4 class="font-16 semi-font"><span class="fables-iconemail fables-second-text-color pr-2 font-20 mt-1 d-inline-block"></span> Mail </h4>
+                    <p class="font-14 fables-fifth-text-color mt-2 ml-4">contact@dream-team.com.tn</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <h2 class="font-20 semi-font fables-second-border-color border-bottom pb-3 mb-3">Visité le site</h2>
+                <ul class="nav fables-footer-links">
+                    <li><a href="{% url 'service:index' %}">Acceuil</a></li>
+                    <li><a href="{% url 'service:about' %}">A propos</a></li>
+                    <li><a href="{% url 'service:categorie' %}">Catégorie</a></li>
+                    <li><a href="{% url 'service:region' %}">Région</a></li>
+                    <li><a href="{% url 'service:contact' %}">Contactez Nous</a></li>
+
+                </ul>
+            </div>
+                      
+        </div> 
+        
+        </div>
+</div>
+<div class="copyright fables-main-background-color mt-0 border-0 white-color">
+        <ul class="nav fables-footer-social-links just-center fables-light-footer-links">
+            <li><a href="#" target="_blank"><i class="fab fa-google-plus-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-pinterest-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        
+
+</div>
+    
+<!-- /End Footer 2 Background Image -->
+
+
+
+
+<script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'assets/vendor/loadscreen/js/ju-loading-screen.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-circle-progress/circle-progress.min.js' %}"></script>
+<script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+<script src="{% static 'assets/vendor/jQuery.countdown-master/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'assets/vendor/timeline/jquery.timelify.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap-4-navbar.js' %}"></script>
+<script src="{% static 'assets/vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script src="{% static 'assets/vendor/owlcarousel/owl.carousel.min.js' %}"></script> 
+<script src="{% static 'assets/custom/js/jquery-data-to.js' %}"></script>   
+<script src="{% static 'assets/vendor/jquery-circle-progress/circle.js' %}"></script>
+<script src="{% static 'assets/vendor/portfolio-filter-gallery/jquery.isotope.min.js' %}"></script>
+<script src="{% static 'assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.js' %}"></script>
+<script src="{% static 'assets/vendor/fancybox-master/jquery.fancybox.min.js"></script>
+<script src="{% static 'assets/custom/js/custom.js' %}"></script>
+
+ 
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fables">
+    <meta name="author" content="Enterprise Development">
+    <link rel="shortcut icon" href="assets/custom/images/shortcut.png">
+
+    <title>Liste reservation</title>
+      
+    <!-- animate.css-->  
+    <link href="{% static 'assets/vendor/animate.css-master/animate.min.css' %}" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="{% static 'assets/vendor/loadscreen/css/spinkit.css' %}" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="{% static 'assets/vendor/fontawesome/css/fontawesome-all.min.css' %}" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="{% static 'assets/custom/css/fables-icons.css' %}" rel="stylesheet"> 
+    <!-- Bootstrap CSS --> 
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap-4-navbar.css' %}" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="{% static 'assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css' %}" rel="stylesheet">
+    <!-- FANCY BOX -->
+    <link href="{% static 'assets/vendor/fancybox-master/jquery.fancybox.min.css' %}" rel="stylesheet"> 
+    <!-- RANGE SLIDER -->
+    <link href="{% static 'assets/vendor/range-slider/range-slider.css' %}" rel="stylesheet">
+    <!-- OWL CAROUSEL  --> 
+    <link href="{% static 'assets/vendor/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owlcarousel/owl.theme.default.min.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="{% static 'assets/custom/css/custom.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="{% static 'assets/custom/css/custom-responsive.css' %}" rel="stylesheet">
+     
+</head>
+
+
+<body>
+
+
+
+
+<!-- Start page content -->
+<div class="container">
+     <div class="row">
+          <div class="col-12 col-lg-6 offset-lg-3">
+              <div class="text-center my-4 my-lg-5 py-4 py-lg-5">
+     
+                  <h3 class="font-30 font-weight-bold fables-second-text-color">Liste Reservation</h3>
+                  {% for i in res%}
+                  <p class="font-20 fables-fifth-text-color my-2">{{i.client}}</p>
+                  <hr>
+                  <p class="font-20 fables-fifth-text-color my-2">{{i.posclient}}</p>
+                  <hr>
+                  <p class="font-20 fables-fifth-text-color my-2">{{i.date}}</p>
+                  <hr>
+                  <p class="font-20 fables-fifth-text-color my-2">{{i.tache}}</p>
+
+                  {% endfor %}
+                  <a href="{% url 'mobile:reservation' %}" class="btn fables-second-border-color fables-btn-rounded fables-background-link font-20 white-color px-5 py-2 mt-4">Actualiser</a>
+              </div>
+          </div>
+     </div>
+
+</div>
+
+<!-- /End page content -->
+
+
+<!-- Start Footer 2 Background Image  -->
+
+
+<!-- /End Footer 2 Background Image -->
+
+
+
+<script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'assets/vendor/loadscreen/js/ju-loading-screen.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-circle-progress/circle-progress.min.js' %}"></script>
+<script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap-4-navbar.js' %}"></script>
+<script src="{% static 'assets/vendor/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/vendor/timeline/jquery.timelify.js' %}"></script>
+<script src="{% static 'assets/vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script src="{% static 'assets/custom/js/custom.js' %}"></script>
+
+</body>
+</html>

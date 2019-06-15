@@ -1,0 +1,253 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fables">
+    <meta name="author" content="Enterprise Development">
+    <link rel="shortcut icon" href="assets/custom/images/shortcut.png">
+
+    <title>404</title>
+      
+    <!-- animate.css-->  
+    <link href="{% static 'assets/vendor/animate.css-master/animate.min.css' %}" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="{% static 'assets/vendor/loadscreen/css/spinkit.css' %}" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="{% static 'assets/vendor/fontawesome/css/fontawesome-all.min.css' %}" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="{% static 'assets/custom/css/fables-icons.css' %}" rel="stylesheet"> 
+    <!-- Bootstrap CSS --> 
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap-4-navbar.css' %}" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="{% static 'assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css' %}" rel="stylesheet">
+    <!-- FANCY BOX -->
+    <link href="{% static 'assets/vendor/fancybox-master/jquery.fancybox.min.css' %}" rel="stylesheet"> 
+    <!-- RANGE SLIDER -->
+    <link href="{% static 'assets/vendor/range-slider/range-slider.css' %}" rel="stylesheet">
+    <!-- OWL CAROUSEL  --> 
+    <link href="{% static 'assets/vendor/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owlcarousel/owl.theme.default.min.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="{% static 'assets/custom/css/custom.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="{% static 'assets/custom/css/custom-responsive.css' %}" rel="stylesheet">
+
+    <style>
+    
+    .container {
+  margin: 2rem auto;
+  max-width: 50rem;
+  text-align: center;
+}
+
+form {
+  margin: 2.5rem auto;
+}
+
+.find-me.btn {
+  font-family: inherit;
+}
+
+.find-me.btn,
+.not-on-https,
+.no-geolocation-support,
+.coordinates {
+  font-size: 1.5em;
+}
+
+.not-on-https,
+.no-geolocation-support {
+  display: none;
+}
+
+.coordinates {
+  display: none;
+  margin-bottom: 2.5rem;
+}
+
+.visible {
+  display: block;
+}
+
+#map {
+  margin: 0 auto;
+  position: relative;
+}
+
+#map-canvas {
+  height: 25rem;
+  min-height: 25rem;
+  width: 100%;
+}
+
+    
+    </style>
+     
+</head>
+
+
+<body>
+
+
+<!-- /End Fables Navigation --> 
+
+
+<!-- /End Header -->
+
+<!-- Start Breadcrumbs -->
+
+<!-- /End Breadcrumbs -->
+
+<!-- Start page content -->
+
+
+
+
+
+    <div class="container">
+
+        <h1>Geolocation API demo</h1>
+      
+        <form class="form-horizontal">
+          <div class="form-group">
+            <button type="button" class="find-me btn btn-info btn-block">Find your location</button>
+          </div>
+        </form>
+      <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <p class="not-on-https">Not on HTTPS :( Most browsers require HTTPS to run the Geolocation API.</p>
+        <p class="no-geolocation-support">The Geolocation API isn't supported in this browser :(</p>
+      
+        <p class="coordinates">Latitude is <b class="latitude">00.000000°</b>, longitude is <b class="longitude">00.000000°</b>.</p>
+        <input type="hidden" id="lat"/>
+        <input type="hidden" id="lon"/>
+      <button id="confirme" type="submit">confirme</button>
+    </form>
+        <div id="map">
+          <div id="map-canvas"></div>
+        </div>
+      
+      </div>
+      
+
+
+
+<!-- /End Footer 2 Background Image -->
+
+
+
+<script src="{% static 'assets/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'assets/vendor/loadscreen/js/ju-loading-screen.js' %}"></script>
+<script src="{% static 'assets/vendor/jquery-circle-progress/circle-progress.min.js' %}"></script>
+<script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap-4-navbar.js' %}"></script>
+<script src="{% static 'assets/vendor/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/vendor/timeline/jquery.timelify.js' %}"></script>
+<script src="{% static 'assets/vendor/WOW-master/dist/wow.min.js' %}"></script>
+<script src="{% static 'assets/custom/js/custom.js' %}"></script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABxxDY0xOiAj_kXt8SCBzUdl48vswszYk"></script>
+
+
+<script>
+
+
+
+$(document).ready(function($) {
+
+var $findMeBtn = $('.find-me');
+$("#confirme").hide();
+
+// Check if browser supports the Geolocation API
+if (!navigator.geolocation) {
+
+  $findMeBtn.addClass('disabled');
+  $('.no-geolocation-support').addClass('visible');
+
+// Check if the page is accessed over HTTPS
+} else if (location.protocol !== 'http:') {
+
+  // Check if top-level frame
+  if (window.top === window.self) {
+
+    // Reload the page over HTTPS
+    location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
+
+  // If not top-level, display a message
+    // Note: CodePen does not allow an `<iframe>` to reload the top-level frame (browser window). See about the `sandbox` attribute at https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#Attributes.
+  } else {
+
+    $findMeBtn.addClass('disabled');
+    $('.not-on-http').addClass('visible');
+
+  };
+
+// Let's use the Geolocation API
+} else {
+
+  $findMeBtn.on('click', function(e) {
+
+    e.preventDefault();
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+
+      // Get the location coordinates
+      var lat = position.coords.latitude;
+      var lng = position.coords.longitude;
+
+      $('.latitude').text(lat.toFixed(6) + '°');
+      $('.longitude').text(lng.toFixed(6) + '°');
+      $('.coordinates').addClass('visible');
+      $("#confirme").show();
+      $('#lat').val(lat.toFixed(6));
+      $('#lon').val(lng.toFixed(6));
+      // Create a map and place a marker at the current location
+        // https://developers.google.com/maps/documentation/javascript/reference
+
+
+
+
+      var mapLatLng = new google.maps.LatLng(lat, lng);
+
+      var mapOptions = {
+        zoom: 15,
+        mapTypeControl: false,
+        center: mapLatLng,
+      };
+
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var mapMarker = new google.maps.Marker({
+        position: mapLatLng,
+        map: map,
+        title: 'Your browser/device places you here',
+      });
+
+      // Re-center the map on user location when window/viewport resizes
+      $(window).resize(function() {
+        google.maps.event.trigger(map, 'resize');
+        map.panTo(mapLatLng);
+      });
+
+    });
+
+  });
+
+};
+
+});
+
+    
+</script>
+
+</body>
+</html>
